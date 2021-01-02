@@ -47,6 +47,7 @@ class Main extends Component {
           <Title title = {'PhotoWall'}/>
           <PhotoWall posts ={this.state.posts} onRemovePhoto={this.removePhoto}/>
 
+
   
         </>
       );
