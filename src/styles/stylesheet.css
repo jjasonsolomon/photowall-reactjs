@@ -63,7 +63,8 @@ display: flex;
 justify-content: center;
    }
 
-   .remove-button{
+   .remove-button
+   {
 
     flex-basis: 48%;
     color:red;
@@ -71,4 +72,14 @@ justify-content: center;
     border:2px solid #f2f2f2;
     line-height: 2;
     padding: 5px;
+   }
+
+   .addIcon {
+    
+    margin: 20px auto;
+    display: table;
+    background: url("https://image.flaticon.com/icons/svg/60/60740.svg") center no-repeat;
+    background-size: contain;
+    padding: 40px;
+    border: none;
    }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Title from './Title'
 import PhotoWall from './PhotoWall'
+import AddPhoto from './AddPhoto'
 
 
 
@@ -12,9 +13,11 @@ class Main extends Component {
     super()
     this.state = {
 
-      posts:[]
+      posts:[],
+      screen: 'photos' // photos or addphotos
     }
       this.removePhoto = this.removePhoto.bind(this);
+      this.navigate = this.navigate.bind(this);
     
   }
   removePhoto(postRemoved)
@@ -28,6 +31,12 @@ class Main extends Component {
 
   }
 
+  navigate()
+  {
+    this.setState({
+      screen: 'addphotos'
+    })
+  }
   componentDidMount()
   {
     console.log('ComponentDidMount')
@@ -40,7 +49,6 @@ class Main extends Component {
 
   componentDidUpdate(prevProps,prevState)
   {
-    alert('Re-rendered')
 console.log(prevState.posts)
 console.log(this.state)
   }
@@ -55,8 +63,28 @@ console.log(this.state)
   
         <>
 
+{
+
+  this.state.screen ==='photos' && (
+
+<div>
+
+
           <Title title = {'PhotoWall'}/>
-          <PhotoWall posts ={this.state.posts} onRemovePhoto={this.removePhoto}/>
+          <PhotoWall posts ={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate}/>
+
+          </div>
+  )
+    }
+
+{
+  this.state.screen === 'addphotos' && (
+<div>
+  <AddPhoto/>
+</div>
+
+  )
+}
 
 
   
