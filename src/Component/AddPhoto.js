@@ -1,9 +1,52 @@
-import React,{Component} from 'react'
+import React, { Component } from 'react'
 
 class AddPhoto extends Component {
-    render()
-    {
-        return <h1>This is the page where we will add photos</h1>
+
+
+    constructor() {
+        super();
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const imageLink = e.target.elements.link.value
+        const description = e.target.elements.description.value
+        const post = {
+            id: Number(new Date ()),
+            description: description,
+            imageLink: imageLink
+        }
+
+        if (description && imageLink) {
+
+            this.props.onAddPhoto(post)
+
+        }
+
+
+    }
+
+
+    render() {
+
+        return (
+            <div>
+                <h1>PhotoWall</h1>
+
+                <div className="form">
+                    <form onSubmit={this.handleSubmit} >
+                        <input type="text" placeholder="Link" name="link" />
+                        <input type="text" placeholder="Desription" name="description" />
+
+                        <button> POST         </button>
+
+
+                    </form>
+
+                </div>
+            </div>
+        )
     }
 }
 

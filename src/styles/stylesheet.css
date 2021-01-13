@@ -63,7 +63,7 @@ display: flex;
 justify-content: center;
    }
 
-   .remove-button
+    button
    {
 
     flex-basis: 48%;
@@ -74,6 +74,7 @@ justify-content: center;
     padding: 5px;
    }
 
+   
    .addIcon {
     
     margin: 20px auto;
@@ -82,4 +83,50 @@ justify-content: center;
     background-size: contain;
     padding: 40px;
     border: none;
+   }
+
+   .form{
+       background-color:white;
+       max-width: 600px;
+       margin: 0 auto;
+       padding: 45px ;
+
+       text-align: center;
+       
+    
+   }
+
+   .form input {
+       font-family: sans-serif;
+       background: #f2f2f2;
+       width: 100%;
+       background-origin: none;
+       padding:15px;
+       box-sizing: border-box;
+       font-size: 14px;
+       margin:0 0 15px;
+
+   }
+
+   .form button {
+       font-family: sans-serif;
+       
+       text-transform: uppercase;
+       background-color: #065884;
+       border: none;
+       width: 100%;
+       padding: 15px;
+       color: white;
+       font-size: 14px;
+       cursor: pointer;
+
+   }
+
+   .form button:hover{
+
+background-color: #788589;
+   }
+
+   button:hover{
+       border-color: blue;
    }
