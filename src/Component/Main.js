@@ -5,9 +5,16 @@ import PhotoWall from './PhotoWall'
 
 class Main extends Component {
 
+  componentDidMount() {
+    this.props.removePost(2);
+  }
 
-  
+
   render() {
+
+
+
+
 
     return (
 
@@ -20,7 +27,7 @@ class Main extends Component {
 
             <Title title={'PhotoWall'} />
 
-            <PhotoWall posts={this.props.posts} />
+            <PhotoWall {...this.props} />
 
           </div>
 
