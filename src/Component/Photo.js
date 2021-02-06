@@ -14,7 +14,7 @@ function Photo(props)
             </figcaption>
             <div className="button-container">
                 <button className="button" onClick = {()=>{
-                     props.removePost(1)
+                     props.removePost(props.index)
                 }}>Remove</button>
             </div>
         </figure>;

@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import Title from './Title'
 import { Route } from 'react-router-dom'
 import PhotoWall from './PhotoWall'
+import {Link} from 'react-router-dom'
+import AddPhoto from '../Component/AddPhoto'
+
 
 class Main extends Component {
 
-  componentDidMount() {
-    this.props.removePost(2);
-  }
 
 
   render() {
@@ -20,12 +20,13 @@ class Main extends Component {
 
 
       <div>
+        <h1>
+
+          <Link to = "/">PhotoWall</Link>
+        </h1>
         <Route exact path="/" render={() => (
 
           <div>
-
-
-            <Title title={'PhotoWall'} />
 
             <PhotoWall {...this.props} />
 
@@ -36,14 +37,13 @@ class Main extends Component {
 
 
 
-        {/* <Route path="/AddPhoto" render={({ history }) => (
-          <AddPhoto onAddPhoto={(addedPost) => {
+        <Route path="/AddPhoto" render={({ history }) => (
+          <AddPhoto {...this.props} onHistory={history} />
 
-            this.addedPhoto(addedPost)
-            history.push("/")
-          }} />
+        )} />
 
-        )} /> */}
+
+
 
 
 
