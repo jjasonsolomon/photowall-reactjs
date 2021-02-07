@@ -3,32 +3,44 @@ import { Route } from "react-router-dom";
 import PhotoWall from "./PhotoWall";
 import { Link } from "react-router-dom";
 import AddPhoto from "../Component/AddPhoto";
+import Single from "./Single"
 
 class Main extends Component {
-  render() {
-    return (
-      <div>
-        <h1>
-          <Link to="/">PhotoWall</Link>
-        </h1>
-        <Route
-          exact path="/"
-          render={() => (
-            <div>
-              <PhotoWall {...this.props} />
-            </div>
-          )}
-        />
+    render() {
+        return (< div >
+            <h1 >
+                <Link to="/" > PhotoWall </Link> </h1> 
+                <Route exact path="/"
+                        render={() => (
+                                <div >
+                                <PhotoWall {...this.props}/> 
+                                </div>
+                )
+            }
+            />
 
-        <Route
-          path="/AddPhoto"
-          render={({ history }) => (
-            <AddPhoto {...this.props} onHistory={history} />
-          )}
-        />
-      </div>
-    );
-  }
+                                
+                                   < Route path="/AddPhoto"
+                                    render={
+                                        ({ history }) => (
+                                            <AddPhoto {...this.props}
+                                            onHistory={history}
+                                        />
+                                        )
+                                    }
+                                />
+
+
+                                
+                                    <Route path='/single/:id' render={
+                                        (params) => (
+                                            // pass in all objects of params and props. params has to go after props because they both have a match object that overrites the other
+                                            <Single {...this.props} {...params}/>
+                                        )
+                                    } /> 
+            </div>
+        );
+    }
 }
 
 export default Main;
