@@ -10,7 +10,7 @@ import App from './Component/App'
 
 //const about = ['Techie', 'Developer', 'Intrested in AI'];
 
-const store = createStore (rootReducer)
+const store = createStore (rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 
 ReactDOM.render(<Provider store={store}><BrowserRouter><App/></BrowserRouter></Provider>, document.getElementById('root'));

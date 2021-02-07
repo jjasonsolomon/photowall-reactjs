@@ -18,7 +18,6 @@ const postReducer = function post (state = posts,action)
               default: return state
        }
 
-       return state;
 }
 
 export default postReducer;

@@ -11,8 +11,6 @@ function PhotoWall(props)
 
         <div>
         <Link  to='/AddPhoto' className="addIcon"></Link>
-
-
         {/* <button onClick={props.onNavigate} className="addIcon"></button> */}
 
         <div className="photo-grid"> 
