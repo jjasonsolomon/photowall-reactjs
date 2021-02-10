@@ -38,4 +38,4 @@ class AddPhoto extends Component {
   }
 }
 
-export default AddPhoto;
+export default AddPhoto

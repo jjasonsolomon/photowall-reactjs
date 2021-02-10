@@ -7,40 +7,38 @@ import Single from "./Single"
 
 class Main extends Component {
     render() {
-        return (< div >
-            <h1 >
-                <Link to="/" > PhotoWall </Link> </h1> 
-                <Route exact path="/"
-                        render={() => (
-                                <div >
-                                <PhotoWall {...this.props}/> 
-                                </div>
-                )
-            }
-            />
+       return (
+       
+        <div> 
+            {/* Link is from the react router */}
+            <h1>
+                <Link to="/">Photowall</Link> 
+            </h1>
 
-                                
-                                   < Route path="/AddPhoto"
-                                    render={
-                                        ({ history }) => (
-                                            <AddPhoto {...this.props}
-                                            onHistory={history}
-                                        />
+            <Route exact path = "/" render={() => (
+                <div>
+                   
+                    <PhotoWall {...this.props} />
+                </div>
+            )}/>
+
+                  
+            < Route path="/AddPhoto" render={ ({ history }) => (
+                  <AddPhoto {...this.props}  onHistory={history}   />
+                                      
                                         )
                                     }
                                 />
 
 
-                                
-                                    <Route path='/single/:id' render={
-                                        (params) => (
+                      <Route path='/single/:id' render={(params) => (
                                             // pass in all objects of params and props. params has to go after props because they both have a match object that overrites the other
                                             <Single {...this.props} {...params}/>
                                         )
                                     } /> 
             </div>
         );
-    }
+    } 
 }
 
 export default Main;

@@ -15,7 +15,15 @@ export function addPost (post)
     
     return{
         type : 'ADD_POST',
-        post
+        post : post
     } 
 
+}
+
+export function addComment (comment)
+{
+    return{
+        type : 'ADD_COMMENT',
+        comment: comment
+    }
 }
