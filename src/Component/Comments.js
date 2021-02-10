@@ -15,7 +15,7 @@ class Comments extends Component {
 
      event.preventDefault()
      const comment = event.target.elements.comment.value
-     this.props.addComment(comment)
+     this.props.addComment(comment,this.props.id)
 
 
     }
@@ -32,7 +32,7 @@ class Comments extends Component {
 
             <form className="comment-form" onSubmit={this.handleSubmit}>
                 <input type="text" placeholder="comments" name="comment"/>
-                <input type="submit" />
+                <input type="submit" hidden />
             </form>
         </div>
     }

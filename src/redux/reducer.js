@@ -1,9 +1,6 @@
 import _posts from '../data/posts'
 import { combineReducers } from 'redux';
 
-
-
-
  function posts (state = _posts,action)      
 
 {
@@ -25,7 +22,7 @@ import { combineReducers } from 'redux';
 
 }
 
-function comments (state=[],action)
+function comments (state={},action)
 
 {
  
@@ -34,7 +31,21 @@ function comments (state=[],action)
  {
         case 'ADD_COMMENT': 
 
-        return [...state,action.comment]
+        if(!state[action.postID])
+
+
+        {
+
+              return {...state,[action.postID]:[action.comment]}
+
+        }
+        else
+        {
+              return {...state, [action.postID]: [...state[action.postID], action.comment]} // add comments to current array
+
+        }
+
+        
 
         default:
                return state
