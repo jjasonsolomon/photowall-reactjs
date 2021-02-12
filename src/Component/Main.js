@@ -6,6 +6,13 @@ import AddPhoto from "../Component/AddPhoto";
 import Single from "./Single"
 
 class Main extends Component {
+
+
+    componentDidMount() {
+        
+        this.props.startLoadingPost();
+    }
+
     render() {
        return (
        

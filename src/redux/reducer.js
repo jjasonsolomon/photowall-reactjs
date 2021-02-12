@@ -17,7 +17,12 @@ import { combineReducers } from 'redux';
 
               return [...state,action.post]
 
+               case 'LOAD_POSTS':
+            return action.posts 
+
               default: return state
+
+
        }
 
 }

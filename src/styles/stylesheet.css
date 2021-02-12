@@ -79,6 +79,8 @@ button, .button, .remove-button {
 button:hover,.button:hover, button:focus, .button:focus {
     border-color: #00f;
     outline: 0;
+    cursor: pointer;
+
    }
 
 
