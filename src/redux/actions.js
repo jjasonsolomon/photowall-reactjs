@@ -77,10 +77,61 @@ export function addComment (comment,postID)
     }
 }
 
+
+export function startAddingComment(comment,postID)
+{
+    return (dispatch) => {
+        return database.ref(`comments/${postID}`)
+        .push(comment)
+        .then(()=> {dispatch(addComment(comment,postID))
+            
+        })
+        .catch((error) => {console.log(error);})
+    } 
+}
+
+export function startLoadingComments()
+{
+    return (dispatch) => {
+        return database.ref('comments')
+        .once('value')
+        .then ((snapshot)=>
+        {
+
+            let comments = [];
+            snapshot.forEach((childSnapshot) => {
+
+           comments[childSnapshot.key] = Object.values(childSnapshot.val()); 
+           console.log("Ckey", childSnapshot.key);
+
+           console.log("CValue", Object.values(childSnapshot.val()));
+
+
+
+            })
+            dispatch(loadComments(comments))
+            console.log("From comments",comments)
+        
+        })
+        .catch((error => console.log(error)))
+    }
+    }
+
+
+
 export function loadPosts(posts)
 {
     return{
         type:'LOAD_POSTS',
         posts
+    }
+}
+
+
+export function loadComments(comments)
+{
+    return{
+        type:'LOAD_COMMENTS',
+        comments
     }
 }
