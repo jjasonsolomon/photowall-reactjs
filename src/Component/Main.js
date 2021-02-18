@@ -8,9 +8,17 @@ import Single from "./Single"
 class Main extends Component {
 
 
+    state = { 
+        loading: true 
+    }
+
     componentDidMount() {
         
-        this.props.startLoadingPost();
+        this.props.startLoadingPost().then( () =>
+        {
+            
+            this.setState({loading:false})
+        });
         this.props.startLoadingComments();
 
     }
@@ -42,8 +50,8 @@ class Main extends Component {
 
                       <Route path='/single/:id' render={(params) => (
                                             // pass in all objects of params and props. params has to go after props because they both have a match object that overrites the other
-                                            <Single {...this.props} {...params}/>
-                                        )
+                      <Single loading={this.state.loading} { ...this.props } {...params} />
+                                            )
                                     } /> 
             </div>
         );

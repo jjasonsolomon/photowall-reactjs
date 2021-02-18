@@ -15,18 +15,28 @@ class Single extends Component
 
 
 
-
-        return (
-
-            <div className='single-photo'>
-            {/* components are reusable so pass in Photo */}
-            <Photo post={post} {...this.props} index={index}/>
-            <Comments addComment={this.props.addComment} comments={comments} id={id}/>
-
-            
-            </div>
-
-        )
+        if (this.props.loading === true) {
+            return (
+                <div className="loader">
+                    ....loading 
+                </div>
+            )
+        } else if (post) {
+            return (
+                <div className='single-photo'>
+                    {/* components are reusable so pass in Photo */}
+                    <Photo post={post} {...this.props} index={index}/>
+                    <Comments startAddingComment={this.props.startAddingComment} comments={comments} id={id}/>
+                </div>
+            )
+        } else {
+            return <h1>...no post found</h1>
+        }
+        
     }
+
+        
+    
 }
+
 export default Single
