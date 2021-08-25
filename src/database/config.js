@@ -1,9 +1,9 @@
 import * as firebase from 'firebase'
   // Your web app's Firebase configuration
   var firebaseConfig = {
-    apiKey: "AIzaSyAGzv0BjITPqZdiV6UtIZ7ch7KxE8N_NOs",
-    authDomain: "photowall-reactjs7.firebaseapp.com",
-    databaseURL: "https://photowall-reactjs7-default-rtdb.firebaseio.com",
+    apiKey: "*******", //masked
+    authDomain: "*****", //masked
+    databaseURL: "***", //masked
     projectId: "photowall-reactjs7",
     storageBucket: "photowall-reactjs7.appspot.com",
     messagingSenderId: "872459625496",
